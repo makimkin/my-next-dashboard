@@ -43,3 +43,34 @@ export const createInvoice = async (formData: FormData) => {
 };
 
 // #endregion --------------------------------------------------------------------------------------
+// #region EDIT INVOICE
+// -----------------------------------------------------------------------------------------------*/
+const editInvoiceFormSchema = z.object({
+  customerId: z.string().min(1),
+  amount: z.coerce.number().positive(),
+  status: z.enum(["paid", "pending"]),
+});
+
+export const editInvoice = async (id: string, formData: FormData) => {
+  const rawFormData = {
+    customerId: formData.get("customerId"),
+    amount: formData.get("amount"),
+    status: formData.get("status"),
+  };
+
+  const { customerId, amount, status } =
+    editInvoiceFormSchema.parse(rawFormData);
+
+  const amountInCents = amount * 100;
+
+  await sql`
+    UPDATE invoices
+    SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
+    WHERE id = ${id}
+  `;
+
+  revalidatePath("/dashboard/invoices");
+  redirect("/dashboard/invoices");
+};
+
+// #endregion --------------------------------------------------------------------------------------
