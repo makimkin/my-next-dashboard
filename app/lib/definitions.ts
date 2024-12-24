@@ -41,7 +41,7 @@ export type TLatestInvoiceRaw = Omit<TLatestInvoice, "amount"> & {
   amount: number;
 };
 
-export type InvoicesTable = {
+export type TInvoicesTable = {
   id: string;
   customer_id: string;
   name: string;

@@ -4,9 +4,9 @@ import { PencilIcon } from "@heroicons/react/24/outline";
 // #endregion --------------------------------------------------------------------------------------
 // #region UPDATE INVOICE COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TUpdateInvoiceProps = {};
+type TUpdateInvoiceProps = { id: string };
 
-const UpdateInvoice: React.FC<TUpdateInvoiceProps> = () => (
+const UpdateInvoice: React.FC<TUpdateInvoiceProps> = ({ id }) => (
   <Link
     href="/dashboard/invoices"
     className="rounded-md border p-2 hover:bg-gray-100"

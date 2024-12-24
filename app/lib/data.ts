@@ -3,7 +3,7 @@ import {
   CustomerField,
   CustomersTableType,
   InvoiceForm,
-  InvoicesTable,
+  TInvoicesTable,
   TLatestInvoiceRaw,
   TRevenue,
 } from "./definitions";
@@ -93,7 +93,7 @@ export async function fetchFilteredInvoices(
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
-    const invoices = await sql<InvoicesTable>`
+    const invoices = await sql<TInvoicesTable>`
       SELECT
         invoices.id,
         invoices.amount,
