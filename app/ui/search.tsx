@@ -22,6 +22,8 @@ const Search: React.FC<TSearchProps> = ({ placeholder }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const params = new URLSearchParams(searchParams);
 
+    params.set("page", "1");
+
     const term = e.target.value;
 
     if (term) {
