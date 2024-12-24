@@ -1,24 +1,24 @@
 const shimmer =
   "before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent";
 
-import { LatestInvoicesSkeletonItem } from "./latest-invoices-skeleton-item";
+import { InvoicesSkeletonItem } from "./invoices-skeleton-item";
 // #endregion --------------------------------------------------------------------------------------
 // #region LATEST INVOICES SKELETON COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TLatestInvoicesSkeletonProps = {};
+type TInvoicesSkeletonProps = {};
 
-const LatestInvoicesSkeleton: React.FC<TLatestInvoicesSkeletonProps> = () => (
+const InvoicesSkeleton: React.FC<TInvoicesSkeletonProps> = () => (
   <div
     className={`${shimmer} relative flex w-full flex-col overflow-hidden md:col-span-4`}
   >
     <div className="mb-4 h-8 w-36 rounded-md bg-gray-100" />
     <div className="flex grow flex-col justify-between rounded-xl bg-gray-100 p-4">
       <div className="bg-white px-6">
-        <LatestInvoicesSkeletonItem />
-        <LatestInvoicesSkeletonItem />
-        <LatestInvoicesSkeletonItem />
-        <LatestInvoicesSkeletonItem />
-        <LatestInvoicesSkeletonItem />
+        <InvoicesSkeletonItem />
+        <InvoicesSkeletonItem />
+        <InvoicesSkeletonItem />
+        <InvoicesSkeletonItem />
+        <InvoicesSkeletonItem />
       </div>
       <div className="flex items-center pb-2 pt-6">
         <div className="h-5 w-5 rounded-full bg-gray-200" />
@@ -27,6 +27,6 @@ const LatestInvoicesSkeleton: React.FC<TLatestInvoicesSkeletonProps> = () => (
     </div>
   </div>
 );
-LatestInvoicesSkeleton.displayName = "LatestInvoicesSkeletonComponent";
+InvoicesSkeleton.displayName = "InvoicesSkeletonComponent";
 // #endregion --------------------------------------------------------------------------------------
-export { LatestInvoicesSkeleton };
+export { InvoicesSkeleton };

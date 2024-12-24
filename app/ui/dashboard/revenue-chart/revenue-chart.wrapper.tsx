@@ -1,5 +1,5 @@
 import { fetchRevenue } from "@/app/lib/data";
-import { RevenueChart } from "./revenue-chart";
+import { RevenueChart } from "./revenue-chart.component";
 // #endregion --------------------------------------------------------------------------------------
 // #region REVENUE CHART WRAPPER
 // -----------------------------------------------------------------------------------------------*/

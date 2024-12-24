@@ -1,11 +1,9 @@
 // #endregion --------------------------------------------------------------------------------------
-// #region LATEST INVOICES SKELETON ITEM COMPONENT
+// #region INVOICES SKELETON ITEM COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TLatestInvoicesSkeletonItemProps = {};
+type TInvoicesSkeletonItemProps = {};
 
-const LatestInvoicesSkeletonItem: React.FC<
-  TLatestInvoicesSkeletonItemProps
-> = () => (
+const InvoicesSkeletonItem: React.FC<TInvoicesSkeletonItemProps> = () => (
   <div className="flex flex-row items-center justify-between border-b border-gray-100 py-4">
     <div className="flex items-center">
       <div className="mr-2 h-8 w-8 rounded-full bg-gray-200" />
@@ -17,6 +15,6 @@ const LatestInvoicesSkeletonItem: React.FC<
     <div className="mt-2 h-4 w-12 rounded-md bg-gray-200" />
   </div>
 );
-LatestInvoicesSkeletonItem.displayName = "LatestInvoicesSkeletonItemComponent";
+InvoicesSkeletonItem.displayName = "InvoicesSkeletonItemComponent";
 // #endregion --------------------------------------------------------------------------------------
-export { LatestInvoicesSkeletonItem };
+export { InvoicesSkeletonItem };

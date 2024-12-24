@@ -1,22 +1,20 @@
 import { Suspense } from "react";
 
-import { LatestInvoices } from "@/app/ui/dashboard/latest-invoices";
 import { RevenueChart } from "@/app/ui/dashboard/revenue-chart";
+import { Invoices } from "@/app/ui/dashboard/invoices";
 import { Card } from "@/app/ui/dashboard/cards";
 
-import { RevenueChartSkeleton } from "@/app/ui/skeletons/revenue-chart-skeleton";
+import { InvoicesSkeleton, RevenueChartSkeleton } from "@/app/ui/skeletons";
 
 import { lusitana } from "@/app/ui/fonts";
 
-import { fetchCardData, fetchLatestInvoices } from "@/app/lib/data";
+import { fetchCardData } from "@/app/lib/data";
 // #endregion --------------------------------------------------------------------------------------
 // #region PAGE COMPONENT
 // -----------------------------------------------------------------------------------------------*/
 type TPageProps = {};
 
 const Page: React.FC<TPageProps> = async () => {
-  const latestInvoices = await fetchLatestInvoices();
-
   const {
     numberOfInvoices,
     totalPaidInvoices,
@@ -43,7 +41,9 @@ const Page: React.FC<TPageProps> = async () => {
         <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
         </Suspense>
-        <LatestInvoices latestInvoices={latestInvoices} />
+        <Suspense fallback={<InvoicesSkeleton />}>
+          <Invoices />
+        </Suspense>
       </div>
     </main>
   );
