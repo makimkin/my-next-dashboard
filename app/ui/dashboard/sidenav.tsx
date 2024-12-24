@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PowerIcon } from "@heroicons/react/24/outline";
 
 import AcmeLogo from "@/app/ui/acme-logo";
-import NavLinks from "@/app/ui/dashboard/nav-links";
+import { NavLinks } from "@/app/ui/dashboard/nav-links";
 import clsx from "clsx";
 // #endregion --------------------------------------------------------------------------------------
 // #region SIDE NAV COMPONENT
