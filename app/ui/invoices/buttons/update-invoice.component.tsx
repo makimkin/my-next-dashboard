@@ -8,7 +8,7 @@ type TUpdateInvoiceProps = { id: string };
 
 const UpdateInvoice: React.FC<TUpdateInvoiceProps> = ({ id }) => (
   <Link
-    href="/dashboard/invoices"
+    href={`/dashboard/invoices/${id}/edit`}
     className="rounded-md border p-2 hover:bg-gray-100"
   >
     <PencilIcon className="w-5" />
