@@ -62,7 +62,7 @@ export type CustomersTableType = {
   total_paid: number;
 };
 
-export type FormattedCustomersTable = {
+export type TFormattedCustomersTable = {
   id: string;
   name: string;
   email: string;

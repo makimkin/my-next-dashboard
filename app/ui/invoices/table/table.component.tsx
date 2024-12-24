@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import InvoiceStatus from "../status";
 import { DeleteInvoice, UpdateInvoice } from "../buttons";
+import { InvoiceStatus } from "@/app/ui/invoices/status";
 import { formatCurrency, formatDateToLocal } from "@/app/lib/utils";
 
 import { type TInvoicesTable } from "@/app/lib/definitions";
