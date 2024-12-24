@@ -29,7 +29,7 @@ export type TRevenue = {
   revenue: number;
 };
 
-export type LatestInvoice = {
+export type TLatestInvoice = {
   id: string;
   name: string;
   image_url: string;
@@ -37,7 +37,7 @@ export type LatestInvoice = {
   amount: string;
 };
 
-export type LatestInvoiceRaw = Omit<LatestInvoice, "amount"> & {
+export type TLatestInvoiceRaw = Omit<TLatestInvoice, "amount"> & {
   amount: number;
 };
 

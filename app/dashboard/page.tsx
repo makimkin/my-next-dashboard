@@ -1,7 +1,8 @@
+import { LatestInvoices } from "@/app/ui/dashboard/latest-invoices";
 import { RevenueChart } from "@/app/ui/dashboard/revenue-chart";
-
 import { lusitana } from "@/app/ui/fonts";
-import { fetchRevenue } from "../lib/data";
+
+import { fetchLatestInvoices, fetchRevenue } from "@/app/lib/data";
 // #endregion --------------------------------------------------------------------------------------
 // #region PAGE COMPONENT
 // -----------------------------------------------------------------------------------------------*/
@@ -9,6 +10,8 @@ type TPageProps = {};
 
 const Page: React.FC<TPageProps> = async () => {
   const revenue = await fetchRevenue();
+
+  const latestInvoices = await fetchLatestInvoices();
 
   return (
     <main>
@@ -27,7 +30,7 @@ const Page: React.FC<TPageProps> = async () => {
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
         <RevenueChart revenue={revenue} />
-        {/* <LatestInvoices latestInvoices={latestInvoices} /> */}
+        <LatestInvoices latestInvoices={latestInvoices} />
       </div>
     </main>
   );
