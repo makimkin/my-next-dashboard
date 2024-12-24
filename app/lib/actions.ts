@@ -74,3 +74,12 @@ export const editInvoice = async (id: string, formData: FormData) => {
 };
 
 // #endregion --------------------------------------------------------------------------------------
+// #region DELETE INVOICE
+// -----------------------------------------------------------------------------------------------*/
+export async function deleteInvoice(id: string) {
+  await sql`DELETE FROM invoices WHERE id = ${id}`;
+
+  revalidatePath("/dashboard/invoices");
+}
+
+// #endregion --------------------------------------------------------------------------------------
