@@ -83,3 +83,10 @@ export type InvoiceForm = {
   amount: number;
   status: "pending" | "paid";
 };
+
+export type TLink = {
+  id: number;
+  name: string;
+  href: string;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+};
