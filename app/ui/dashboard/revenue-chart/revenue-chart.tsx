@@ -10,7 +10,7 @@ import { TRevenue } from "@/app/lib/definitions";
 // https://airbnb.io/visx/
 
 // #endregion --------------------------------------------------------------------------------------
-// #region REVENUECHART COMPONENT
+// #region REVENUE CHART COMPONENT
 // -----------------------------------------------------------------------------------------------*/
 type TRevenueChartProps = { revenue: TRevenue[] };
 

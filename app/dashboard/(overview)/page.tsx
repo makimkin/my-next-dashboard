@@ -1,22 +1,20 @@
+import { Suspense } from "react";
+
 import { LatestInvoices } from "@/app/ui/dashboard/latest-invoices";
 import { RevenueChart } from "@/app/ui/dashboard/revenue-chart";
 import { Card } from "@/app/ui/dashboard/cards";
 
+import { RevenueChartSkeleton } from "@/app/ui/skeletons/revenue-chart-skeleton";
+
 import { lusitana } from "@/app/ui/fonts";
 
-import {
-  fetchCardData,
-  fetchLatestInvoices,
-  fetchRevenue,
-} from "@/app/lib/data";
+import { fetchCardData, fetchLatestInvoices } from "@/app/lib/data";
 // #endregion --------------------------------------------------------------------------------------
 // #region PAGE COMPONENT
 // -----------------------------------------------------------------------------------------------*/
 type TPageProps = {};
 
 const Page: React.FC<TPageProps> = async () => {
-  const revenue = await fetchRevenue();
-
   const latestInvoices = await fetchLatestInvoices();
 
   const {
@@ -42,7 +40,9 @@ const Page: React.FC<TPageProps> = async () => {
         />
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        <RevenueChart revenue={revenue} />
+        <Suspense fallback={<RevenueChartSkeleton />}>
+          <RevenueChart />
+        </Suspense>
         <LatestInvoices latestInvoices={latestInvoices} />
       </div>
     </main>
