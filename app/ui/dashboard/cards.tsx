@@ -30,15 +30,16 @@ export default async function CardWrapper() {
   );
 }
 
-export function Card({
-  title,
-  value,
-  type,
-}: {
+// #endregion --------------------------------------------------------------------------------------
+// #region CARD COMPONENT
+// -----------------------------------------------------------------------------------------------*/
+type TCardProps = {
   title: string;
   value: number | string;
   type: "invoices" | "customers" | "pending" | "collected";
-}) {
+};
+
+const Card: React.FC<TCardProps> = async ({ title, value, type }) => {
   const Icon = iconMap[type];
 
   return (
@@ -49,10 +50,13 @@ export function Card({
       </div>
       <p
         className={`${lusitana.className}
-          truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
+        truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
       >
         {value}
       </p>
     </div>
   );
-}
+};
+Card.displayName = "CardComponent";
+// #endregion --------------------------------------------------------------------------------------
+export { Card };
