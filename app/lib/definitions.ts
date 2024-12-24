@@ -72,12 +72,12 @@ export type FormattedCustomersTable = {
   total_paid: string;
 };
 
-export type CustomerField = {
+export type TCustomerField = {
   id: string;
   name: string;
 };
 
-export type InvoiceForm = {
+export type TInvoiceForm = {
   id: string;
   customer_id: string;
   amount: number;

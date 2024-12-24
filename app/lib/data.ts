@@ -1,8 +1,8 @@
 import { sql } from "@vercel/postgres";
 import {
-  CustomerField,
+  TCustomerField,
   CustomersTableType,
-  InvoiceForm,
+  TInvoiceForm,
   TInvoicesTable,
   TLatestInvoiceRaw,
   TRevenue,
@@ -144,7 +144,7 @@ export async function fetchInvoicesPages(query: string) {
 
 export async function fetchInvoiceById(id: string) {
   try {
-    const data = await sql<InvoiceForm>`
+    const data = await sql<TInvoiceForm>`
       SELECT
         invoices.id,
         invoices.customer_id,
@@ -169,7 +169,7 @@ export async function fetchInvoiceById(id: string) {
 
 export async function fetchCustomers() {
   try {
-    const data = await sql<CustomerField>`
+    const data = await sql<TCustomerField>`
       SELECT
         id,
         name
