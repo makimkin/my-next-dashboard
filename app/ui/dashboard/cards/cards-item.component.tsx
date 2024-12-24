@@ -13,33 +13,16 @@ const iconMap = {
   invoices: InboxIcon,
 };
 
-export default async function CardWrapper() {
-  return (
-    <>
-      {/* NOTE: Uncomment this code in Chapter 9 */}
-
-      {/* <Card title="Collected" value={totalPaidInvoices} type="collected" />
-      <Card title="Pending" value={totalPendingInvoices} type="pending" />
-      <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
-      <Card
-        title="Total Customers"
-        value={numberOfCustomers}
-        type="customers"
-      /> */}
-    </>
-  );
-}
-
 // #endregion --------------------------------------------------------------------------------------
-// #region CARD COMPONENT
+// #region CARDS ITEM COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TCardProps = {
+type TCardsItemProps = {
   title: string;
   value: number | string;
   type: "invoices" | "customers" | "pending" | "collected";
 };
 
-const Card: React.FC<TCardProps> = async ({ title, value, type }) => {
+const CardsItem: React.FC<TCardsItemProps> = async ({ title, value, type }) => {
   const Icon = iconMap[type];
 
   return (
@@ -57,6 +40,6 @@ const Card: React.FC<TCardProps> = async ({ title, value, type }) => {
     </div>
   );
 };
-Card.displayName = "CardComponent";
+CardsItem.displayName = "CardsItemComponent";
 // #endregion --------------------------------------------------------------------------------------
-export { Card };
+export { CardsItem };
