@@ -24,7 +24,7 @@ export type Invoice = {
   status: "pending" | "paid";
 };
 
-export type Revenue = {
+export type TRevenue = {
   month: string;
   revenue: number;
 };
