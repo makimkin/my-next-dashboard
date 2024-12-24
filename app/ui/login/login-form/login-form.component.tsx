@@ -1,11 +1,31 @@
-import { lusitana } from "@/app/ui/fonts";
-import { AtSymbolIcon, KeyIcon } from "@heroicons/react/24/outline";
-import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { Button } from "./button";
+"use client";
 
-export default function LoginForm() {
+import { useActionState } from "react";
+
+import { lusitana } from "@/app/ui/fonts";
+import { Button } from "@/app/ui/button";
+
+import { performSignIn } from "@/app/lib/actions";
+
+import {
+  ArrowRightIcon,
+  AtSymbolIcon,
+  ExclamationCircleIcon,
+  KeyIcon,
+} from "@heroicons/react/24/outline";
+// #endregion --------------------------------------------------------------------------------------
+// #region LOGIN FORM COMPONENT
+// -----------------------------------------------------------------------------------------------*/
+type TLoginFormProps = {};
+
+const LoginForm: React.FC<TLoginFormProps> = () => {
+  const [errorMessage, formAction, isPending] = useActionState(
+    performSignIn,
+    undefined
+  );
+
   return (
-    <form className="space-y-3">
+    <form className="space-y-3" action={formAction}>
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
           Please log in to continue.
@@ -55,9 +75,17 @@ export default function LoginForm() {
           Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
         </Button>
         <div className="flex h-8 items-end space-x-1">
-          {/* Add form errors here */}
+          {errorMessage && (
+            <>
+              <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
+              <p className="text-sm text-red-500">{errorMessage}</p>
+            </>
+          )}
         </div>
       </div>
     </form>
   );
-}
+};
+LoginForm.displayName = "LoginFormComponent";
+// #endregion --------------------------------------------------------------------------------------
+export { LoginForm };
