@@ -9,14 +9,11 @@ import {
 } from "./definitions";
 
 import { formatCurrency } from "./utils";
+import { randomSleep } from "./sleep";
 
 export async function fetchRevenue() {
   try {
-    // Artificially delay a response for demo purposes.
-    // Don't do this in production :)
-
-    // console.log('Fetching revenue data...');
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    await randomSleep(1000, 5000);
 
     const data = await sql<TRevenue>`SELECT * FROM revenue`;
 
@@ -31,6 +28,8 @@ export async function fetchRevenue() {
 
 export async function fetchLatestInvoices() {
   try {
+    await randomSleep(1000, 5000);
+
     const data = await sql<TLatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
       FROM invoices
@@ -51,6 +50,8 @@ export async function fetchLatestInvoices() {
 
 export async function fetchCardData() {
   try {
+    await randomSleep(1000, 5000);
+
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
     // how to initialize multiple queries in parallel with JS.
