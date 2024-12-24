@@ -5,9 +5,7 @@ import { InvoicesSkeletonItem } from "./invoices-skeleton-item";
 // #endregion --------------------------------------------------------------------------------------
 // #region LATEST INVOICES SKELETON COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TInvoicesSkeletonProps = {};
-
-const InvoicesSkeleton: React.FC<TInvoicesSkeletonProps> = () => (
+const InvoicesSkeleton: React.FC = () => (
   <div
     className={`${shimmer} relative flex w-full flex-col overflow-hidden md:col-span-4`}
   >

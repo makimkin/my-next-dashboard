@@ -2,9 +2,7 @@ import { CardsSkeletonItem } from "./cards-skeleton-item";
 // #endregion --------------------------------------------------------------------------------------
 // #region CARDS SKELETON COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TCardsSkeletonProps = {};
-
-const CardsSkeleton: React.FC<TCardsSkeletonProps> = () => (
+const CardsSkeleton: React.FC = () => (
   <>
     <CardsSkeletonItem />
     <CardsSkeletonItem />

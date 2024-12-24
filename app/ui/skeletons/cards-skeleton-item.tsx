@@ -4,9 +4,7 @@ const shimmer =
 // #endregion --------------------------------------------------------------------------------------
 // #region CARDS SKELETON ITEM COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TCardsSkeletonItemProps = {};
-
-const CardsSkeletonItem: React.FC<TCardsSkeletonItemProps> = () => (
+const CardsSkeletonItem: React.FC = () => (
   <div
     className={`${shimmer} relative overflow-hidden rounded-xl bg-gray-100 p-2 shadow-sm`}
   >

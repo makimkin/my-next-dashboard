@@ -38,7 +38,7 @@ export const createInvoice = async (formData: FormData) => {
     revalidatePath("/dashboard/invoices");
   } catch (error) {
     return {
-      message: "Database Error: Failed to Create Invoice.",
+      message: `Database Error: Failed to Create Invoice: ${error} `,
     };
   }
 
@@ -75,7 +75,7 @@ export const editInvoice = async (id: string, formData: FormData) => {
     revalidatePath("/dashboard/invoices");
   } catch (error) {
     return {
-      message: "Database Error: Failed to Edit Invoice.",
+      message: `Database Error: Failed to Edit Invoice: ${error}`,
     };
   }
 
@@ -91,7 +91,7 @@ export async function deleteInvoice(id: string) {
     revalidatePath("/dashboard/invoices");
   } catch (error) {
     return {
-      message: "Database Error: Failed to Delete Invoice.",
+      message: `Database Error: Failed to Delete Invoice: ${error}`,
     };
   }
 }

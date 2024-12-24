@@ -2,9 +2,7 @@ import clsx from "clsx";
 // #endregion --------------------------------------------------------------------------------------
 // #region PAGE COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TPageProps = {};
-
-const Page: React.FC<TPageProps> = () => (
+const Page: React.FC = () => (
   <div className={clsx("")}>Customers page</div>
 );
 Page.displayName = "PageComponent";

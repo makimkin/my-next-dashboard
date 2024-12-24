@@ -10,9 +10,7 @@ import { lusitana } from "./ui/fonts";
 // #endregion --------------------------------------------------------------------------------------
 // #region PAGE COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TPageProps = {};
-
-const Page: React.FC<TPageProps> = () => (
+const Page: React.FC = () => (
   <main className={"flex min-h-screen flex-col p-6"}>
     <div
       className={

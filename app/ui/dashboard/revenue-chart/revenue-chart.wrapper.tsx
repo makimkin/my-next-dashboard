@@ -3,9 +3,7 @@ import { RevenueChart } from "./revenue-chart.component";
 // #endregion --------------------------------------------------------------------------------------
 // #region REVENUE CHART WRAPPER
 // -----------------------------------------------------------------------------------------------*/
-type TRevenueChartWrapperProps = {};
-
-const RevenueChartWrapper: React.FC<TRevenueChartWrapperProps> = async () => {
+const RevenueChartWrapper: React.FC = async () => {
   const revenue = await fetchRevenue();
 
   return <RevenueChart revenue={revenue} />;

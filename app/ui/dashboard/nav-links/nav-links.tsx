@@ -30,9 +30,7 @@ const links: TLink[] = [
 // #endregion --------------------------------------------------------------------------------------
 // #region NAV LINKS COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TNavLinksProps = {};
-
-const NavLinks: React.FC<TNavLinksProps> = () => (
+const NavLinks: React.FC = () => (
   <>
     {links.map((link) => (
       <NavLinksItem link={link} key={link.id} />

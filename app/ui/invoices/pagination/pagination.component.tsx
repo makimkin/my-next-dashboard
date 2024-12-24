@@ -2,7 +2,6 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import { PaginationArrow } from "./pagination-arrow.component";
-import { PaginationNumber } from "./pagination-number.component";
 
 // #endregion --------------------------------------------------------------------------------------
 // #region PAGINATION COMPONENT

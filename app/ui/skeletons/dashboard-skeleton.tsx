@@ -8,9 +8,7 @@ const shimmer =
 // #endregion --------------------------------------------------------------------------------------
 // #region DASHBOARD SKELETON COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TDashboardSkeletonProps = {};
-
-const DashboardSkeleton: React.FC<TDashboardSkeletonProps> = () => (
+const DashboardSkeleton: React.FC = () => (
   <>
     <div
       className={`${shimmer} relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-gray-100`}

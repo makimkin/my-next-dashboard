@@ -2,6 +2,7 @@ import { fetchCustomers, fetchInvoiceById } from "@/app/lib/data";
 
 import { Breadcrumbs } from "@/app/ui/invoices/breadcrumbs";
 import { EditForm } from "@/app/ui/invoices/edit-form";
+import { notFound } from "next/navigation";
 // #endregion --------------------------------------------------------------------------------------
 // #region PAGE COMPONENT
 // -----------------------------------------------------------------------------------------------*/
@@ -22,6 +23,10 @@ const Page: React.FC<TPageProps> = async ({ params }) => {
     fetchInvoiceById(id),
     fetchCustomers(),
   ]);
+
+  if (!invoice) {
+    return notFound();
+  }
 
   // #endregion ------------------------------------------------------------------------------------
   // #region RENDER

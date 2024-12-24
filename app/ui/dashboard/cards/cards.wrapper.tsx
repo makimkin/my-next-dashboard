@@ -4,9 +4,7 @@ import { fetchCardData } from "@/app/lib/data";
 // #endregion --------------------------------------------------------------------------------------
 // #region CARDS WRAPPER
 // -----------------------------------------------------------------------------------------------*/
-type TCardsWrapperProps = {};
-
-const CardsWrapper: React.FC<TCardsWrapperProps> = async () => {
+const CardsWrapper: React.FC = async () => {
   const {
     numberOfInvoices,
     totalPaidInvoices,

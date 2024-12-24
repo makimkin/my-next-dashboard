@@ -1,11 +1,7 @@
 // #endregion --------------------------------------------------------------------------------------
 // #region INVOICES TABLE MOBILE SKELETON COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TInvoicesTableMobileSkeletonProps = {};
-
-const InvoicesTableMobileSkeleton: React.FC<
-  TInvoicesTableMobileSkeletonProps
-> = () => (
+const InvoicesTableMobileSkeleton: React.FC = () => (
   <div className="mb-2 w-full rounded-md bg-white p-4">
     <div className="flex items-center justify-between border-b border-gray-100 pb-8">
       <div className="flex items-center">

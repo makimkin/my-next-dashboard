@@ -14,9 +14,7 @@ import { lusitana } from "@/app/ui/fonts";
 // #endregion --------------------------------------------------------------------------------------
 // #region PAGE COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TPageProps = {};
-
-const Page: React.FC<TPageProps> = async () => (
+const Page: React.FC = async () => (
   <main>
     <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
       Dashboard

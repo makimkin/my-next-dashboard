@@ -3,9 +3,7 @@ import { InvoicesTableRowSkeleton } from "./invoices-table-row-skeleton";
 // #endregion --------------------------------------------------------------------------------------
 // #region INVOICES TABLE SKELETON COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TInvoicesTableSkeletonProps = {};
-
-const InvoicesTableSkeleton: React.FC<TInvoicesTableSkeletonProps> = () => (
+const InvoicesTableSkeleton: React.FC = () => (
   <div className="mt-6 flow-root">
     <div className="inline-block min-w-full align-middle">
       <div className="rounded-lg bg-gray-50 p-2 md:pt-0">

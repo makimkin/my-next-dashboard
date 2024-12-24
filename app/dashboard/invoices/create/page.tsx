@@ -4,9 +4,7 @@ import { CreateForm } from "@/app/ui/invoices/create-form";
 // #endregion --------------------------------------------------------------------------------------
 // #region PAGE COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TPageProps = {};
-
-const Page: React.FC<TPageProps> = async () => {
+const Page: React.FC = async () => {
   const customers = await fetchCustomers();
 
   return (
