@@ -1,5 +1,6 @@
 "use client";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useDebouncedCallback } from "use-debounce";
 
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 // #endregion --------------------------------------------------------------------------------------
@@ -32,6 +33,8 @@ const Search: React.FC<TSearchProps> = ({ placeholder }) => {
     replace(`${pathname}?${params.toString()}`);
   };
 
+  const debouncedHandleChange = useDebouncedCallback(handleChange, 500);
+
   // #endregion ------------------------------------------------------------------------------------
   // #region RENDER
   // ---------------------------------------------------------------------------------------------*/
@@ -41,7 +44,7 @@ const Search: React.FC<TSearchProps> = ({ placeholder }) => {
         Search
       </label>
       <input
-        onChange={handleChange}
+        onChange={debouncedHandleChange}
         className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
         placeholder={placeholder}
         defaultValue={searchParams.get("query")?.toString()}
