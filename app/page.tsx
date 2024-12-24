@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import AcmeLogo from "./ui/acme-logo";
 import { lusitana } from "./ui/fonts";
@@ -58,6 +59,20 @@ const Page: React.FC<TPageProps> = () => (
         }
       >
         {/* Add Hero Images Here */}
+        <Image
+          src={"/hero-desktop.png"}
+          width={1000}
+          height={760}
+          className="hidden md:block"
+          alt="Screenshots of the dashboard project showing desktop version"
+        />
+        <Image
+          src={"/hero-mobile.png"}
+          width={560}
+          height={620}
+          className="block md:hidden"
+          alt="Screenshots of the dashboard project showing mobile version"
+        />
       </div>
     </div>
   </main>
