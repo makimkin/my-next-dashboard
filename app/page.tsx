@@ -1,6 +1,11 @@
+import clsx from "clsx";
+
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 import Link from "next/link";
+
+import AcmeLogo from "./ui/acme-logo";
+import { lusitana } from "./ui/fonts";
 // #endregion --------------------------------------------------------------------------------------
 // #region PAGE COMPONENT
 // -----------------------------------------------------------------------------------------------*/
@@ -13,7 +18,7 @@ const Page: React.FC<TPageProps> = () => (
         "flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52"
       }
     >
-      {/* <AcmeLogo /> */}
+      <AcmeLogo />
     </div>
     <div className={"mt-4 flex grow flex-col gap-4 md:flex-row"}>
       <div
@@ -26,7 +31,12 @@ const Page: React.FC<TPageProps> = () => (
             "relative w-0 h-0 border-l-[15px] border-r-[15px] border-b-[26px] border-l-transparent border-r-transparent border-b-black"
           }
         />
-        <p className={"text-xl text-gray-800 md:text-3xl md:leading-normal"}>
+        <p
+          className={clsx(
+            lusitana.className,
+            "text-xl text-gray-800 md:text-3xl md:leading-normal"
+          )}
+        >
           <strong>Welcome to Acme.</strong> This is the example for the{" "}
           <a href="https://nextjs.org/learn/" className="text-blue-500">
             Next.js Learn Course
