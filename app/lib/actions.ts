@@ -103,11 +103,7 @@ export const editInvoice = async (id: string, formData: FormData) => {
     WHERE id = ${id}
   `;
     revalidatePath("/dashboard/invoices");
-  } catch (error) {
-    return {
-      message: `Database Error: Failed to Edit Invoice: ${error}`,
-    };
-  }
+  } catch {}
 
   redirect("/dashboard/invoices");
 };
@@ -115,16 +111,12 @@ export const editInvoice = async (id: string, formData: FormData) => {
 // #endregion --------------------------------------------------------------------------------------
 // #region DELETE INVOICE
 // -----------------------------------------------------------------------------------------------*/
-export async function deleteInvoice(id: string) {
+export const deleteInvoice = async (id: string) => {
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
-    revalidatePath("/dashboard/invoices");
-  } catch (error) {
-    return {
-      message: `Database Error: Failed to Delete Invoice: ${error}`,
-    };
-  }
-}
+    return revalidatePath("/dashboard/invoices");
+  } catch {}
+};
 
 // #endregion --------------------------------------------------------------------------------------
 // #region AUTH
