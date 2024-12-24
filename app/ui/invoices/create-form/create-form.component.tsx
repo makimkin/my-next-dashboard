@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 import Link from "next/link";
 import {
   CheckIcon,
@@ -16,17 +18,25 @@ import { Button } from "@/app/ui/button";
 type TCreateFormProps = { customers: TCustomerField[] };
 
 const CreateForm: React.FC<TCreateFormProps> = ({ customers }) => {
+  const customerId = useId();
+  const amountId = useId();
+  const statusId = useId();
+  const paidId = useId();
+
   return (
     <form action={createInvoice}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
-          <label htmlFor="customer" className="mb-2 block text-sm font-medium">
+          <label
+            htmlFor={customerId}
+            className="mb-2 block text-sm font-medium"
+          >
             Choose customer
           </label>
           <div className="relative">
             <select
-              id="customer"
+              id={customerId}
               name="customerId"
               className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               defaultValue=""
@@ -46,13 +56,13 @@ const CreateForm: React.FC<TCreateFormProps> = ({ customers }) => {
 
         {/* Invoice Amount */}
         <div className="mb-4">
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
+          <label htmlFor={amountId} className="mb-2 block text-sm font-medium">
             Choose an amount
           </label>
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <input
-                id="amount"
+                id={amountId}
                 name="amount"
                 type="number"
                 step="0.01"
@@ -73,14 +83,14 @@ const CreateForm: React.FC<TCreateFormProps> = ({ customers }) => {
             <div className="flex gap-4">
               <div className="flex items-center">
                 <input
-                  id="pending"
+                  id={statusId}
                   name="status"
                   type="radio"
                   value="pending"
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                 />
                 <label
-                  htmlFor="pending"
+                  htmlFor={statusId}
                   className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600"
                 >
                   Pending <ClockIcon className="h-4 w-4" />
@@ -88,14 +98,14 @@ const CreateForm: React.FC<TCreateFormProps> = ({ customers }) => {
               </div>
               <div className="flex items-center">
                 <input
-                  id="paid"
+                  id={paidId}
                   name="status"
                   type="radio"
                   value="paid"
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                 />
                 <label
-                  htmlFor="paid"
+                  htmlFor={paidId}
                   className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium text-white"
                 >
                   Paid <CheckIcon className="h-4 w-4" />
