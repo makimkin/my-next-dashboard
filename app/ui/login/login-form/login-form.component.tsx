@@ -16,13 +16,8 @@ import {
 // #endregion --------------------------------------------------------------------------------------
 // #region LOGIN FORM COMPONENT
 // -----------------------------------------------------------------------------------------------*/
-type TLoginFormProps = {};
-
-const LoginForm: React.FC<TLoginFormProps> = () => {
-  const [errorMessage, formAction, isPending] = useActionState(
-    performSignIn,
-    undefined
-  );
+const LoginForm: React.FC = () => {
+  const [errorMessage, formAction] = useActionState(performSignIn, undefined);
 
   return (
     <form className="space-y-3" action={formAction}>
