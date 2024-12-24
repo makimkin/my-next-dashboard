@@ -12,20 +12,48 @@ import { sql } from "@vercel/postgres";
 // #region CREATE INVOICE
 // -----------------------------------------------------------------------------------------------*/
 const createInvoiceFormSchema = z.object({
-  customerId: z.string().min(1),
-  amount: z.coerce.number().positive(),
-  status: z.enum(["paid", "pending"]),
+  customerId: z
+    .string({
+      invalid_type_error: "Customer ID must be a string",
+    })
+    .min(1),
+  amount: z.coerce
+    .number()
+    .positive({ message: "Amount must be a positive number" }),
+  status: z.enum(["paid", "pending"], {
+    invalid_type_error: "Status must be either 'paid' or 'pending'",
+  }),
 });
 
-export const createInvoice = async (formData: FormData) => {
+export type TCreateInvoiceState = {
+  errors?: {
+    customerId?: string[];
+    amount?: string[];
+    status?: string[];
+  };
+  message?: string | null;
+};
+
+export const createInvoice = async (
+  _: TCreateInvoiceState,
+  formData: FormData
+) => {
   const rawFormData = {
     customerId: formData.get("customerId"),
     amount: formData.get("amount"),
     status: formData.get("status"),
   };
 
-  const { customerId, amount, status } =
-    createInvoiceFormSchema.parse(rawFormData);
+  const validatedFields = createInvoiceFormSchema.safeParse(rawFormData);
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to Create Invoice.",
+    };
+  }
+
+  const { customerId, amount, status } = validatedFields.data;
 
   const amountInCents = amount * 100;
   const date = new Date().toISOString().split("T")[0];
